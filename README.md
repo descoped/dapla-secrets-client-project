@@ -35,4 +35,4 @@ try (SecretManagerClient client = SecretManagerClient.create(providerConfigurati
 }
 ```
 
-Please refer to `SecretManagerTest` for further details.
+Please refer to [`SecretManagerTest`](src/test/java/no/ssb/dapla/secrets/api/SecretManagerTest.java) for further details.
