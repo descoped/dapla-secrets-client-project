@@ -2,6 +2,7 @@ package no.ssb.dapla.secrets.api;
 
 import no.ssb.config.DynamicConfiguration;
 import no.ssb.config.StoreBasedDynamicConfiguration;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -26,7 +27,7 @@ public class SecretManagerTest {
         }
     }
 
-//    @Disabled
+    @Disabled
     @Test
     void readGoogleSecret() {
         DynamicConfiguration configuration = new StoreBasedDynamicConfiguration.Builder()
