@@ -4,10 +4,10 @@ SecretManagerClient is a provider based API for reading secrets.
 
 Supported providers are:
 
-* Dynamic Secret Provider
-* Google Secret Manager Provider
+* Dynamic Secret Provider (`DynamicSecretConfigurationClient`)
+* Google Secret Manager Provider (`GoogleSecretManagerClient`)
 
-The Google SecretManager support service-account and compute-engine authentication.
+The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` authentication.
 
 Usage:
 
