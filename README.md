@@ -1,6 +1,6 @@
 # Dapla Secret Manager Client
 
-SecretManagerClient is a provider based API for reading secrets.
+`SecretManagerClient` is a provider based API for reading secrets.
 
 Supported providers are:
 
