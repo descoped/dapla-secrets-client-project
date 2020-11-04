@@ -36,3 +36,5 @@ target/maven-archiver/
 dependency-reduced-pom.xml
 
 **/target
+
+**/application-override.properties
