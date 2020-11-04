@@ -11,23 +11,16 @@ The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` 
 
 Usage:
 
-1) load configuration with property 'gcp.service-account.file'
-```
-DynamicConfiguration configuration = new StoreBasedDynamicConfiguration.Builder()
-        .propertiesResource("application-override.properties")
-        .build();
-```
-
-2) google secret manager specific provider configuration
+1) google secret manager specific provider configuration
 ```
 Map<String, String> providerConfiguration = Map.of(
         "secrets.provider", "google-secret-manager",
         "secrets.projectId", "ssb-team-dapla",
-        "secrets.serviceAccountKeyPath", configuration.evaluateToString("gcp.service-account.file")
+        "secrets.serviceAccountKeyPath", "FULL_PATH_TO_SERVICE_ACCOUNT.json")
 );
 ```
 
-3) create client and read secret
+2) create client and read secret
 ```
 try (SecretManagerClient client = SecretManagerClient.create(providerConfiguration)) {
     assertEquals("42\n", client.readString("AN_ANSWER"));
