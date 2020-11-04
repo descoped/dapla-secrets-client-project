@@ -1,6 +1,39 @@
 # Dapla Secret Manager Client
 
-`SecretManagerClient` is a provider based API for reading secrets.
+[SecretManagerClient](src/main/java/no/ssb/dapla/secrets/api/SecretManagerClient.java) is a provider based API for reading secrets.
+
+```java
+interface SecretManagerClient extends AutoCloseable {
+
+    /**
+     * Read secret
+     */
+    String readString(String secretName);
+
+    /**
+     * Read secret for a specific version
+     */
+    String readString(String secretName, String secretVersion);
+
+    /**
+     * Read secret
+     */
+    byte[] readBytes(String secretName);
+
+    /**
+     * Read secret for a specific version
+     */
+    byte[] readBytes(String secretName, String secretVersion);
+
+    /**
+     * Create SecretManagerClient for a 'secrets.provider'
+     *
+     * @param configuration Each provider requires their own properties
+     * @return SecretManagerClient instance
+     */
+    static SecretManagerClient create(Map<String, String> configuration);
+}
+```
 
 Supported providers are:
 
@@ -12,7 +45,8 @@ The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` 
 Usage:
 
 1) google secret manager specific provider configuration
-```
+
+```java
 Map<String, String> providerConfiguration = Map.of(
         "secrets.provider", "google-secret-manager",
         "secrets.projectId", "ssb-team-dapla",
@@ -21,11 +55,12 @@ Map<String, String> providerConfiguration = Map.of(
 ```
 
 2) create client and read secret
-```
+
+```java
 try (SecretManagerClient client = SecretManagerClient.create(providerConfiguration)) {
     assertEquals("42\n", client.readString("AN_ANSWER"));
     assertArrayEquals("42\n".getBytes(), client.readBytes("AN_ANSWER"));
 }
 ```
 
-Please refer to [`SecretManagerTest`](src/test/java/no/ssb/dapla/secrets/api/SecretManagerTest.java) for further details.
+Please refer to [SecretManagerTest](src/test/java/no/ssb/dapla/secrets/api/SecretManagerTest.java) for further details.
