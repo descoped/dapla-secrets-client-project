@@ -2,6 +2,18 @@
 
 [SecretManagerClient](src/main/java/no/ssb/dapla/secrets/api/SecretManagerClient.java) is a provider based API for reading secrets.
 
+## Dependency
+
+```xml
+<dependency>
+    <groupId>no.ssb.dapla.secrets</groupId>
+    <artifactId>dapla-secrets-client</artifactId>
+    <version>0.1</version>
+</dependency>
+```
+
+## API
+
 ```java
 interface SecretManagerClient extends AutoCloseable {
 
@@ -35,14 +47,14 @@ interface SecretManagerClient extends AutoCloseable {
 }
 ```
 
-Supported providers are:
+## Supported providers
 
 * Dynamic Secret Provider (`DynamicSecretConfigurationClient`)
 * Google Secret Manager Provider (`GoogleSecretManagerClient`)
 
 The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` authentication.
 
-Usage:
+## Usage
 
 1) google secret manager specific provider configuration
 
