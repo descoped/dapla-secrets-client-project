@@ -8,13 +8,13 @@
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-client-api</artifactId>
-    <version>0.1</version>
+    <version>0.1.0</version>
 </dependency>
 
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-provider-google-rest-api</artifactId>
-    <version>0.1</version>
+    <version>0.1.0</version>
 </dependency>
 ```
 
