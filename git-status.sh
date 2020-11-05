@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-printf '\dapla-secret-manager-project'
+printf '\dapla-secrets-client-project'
 echo "----------------------------------------------------------------"
 git status --short
 

@@ -46,10 +46,10 @@
     </scm>
 
     <modules>
-        <module>dapla-secret-manager-client-api</module>
-        <module>dapla-secret-manager-provider-dynamic-configuration</module>
-        <module>dapla-secret-manager-provider-google-rest-api</module>
-        <module>dapla-secret-manager-provider-google-java-api</module>
+        <module>dapla-secrets-client-api</module>
+        <module>dapla-secrets-provider-dynamic-configuration</module>
+        <module>dapla-secrets-provider-google-rest-api</module>
+        <module>dapla-secrets-provider-google-java-api</module>
     </modules>
 
 </project>
