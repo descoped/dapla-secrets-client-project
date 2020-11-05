@@ -1,6 +1,6 @@
 # Dapla Secret Manager Client
 
-[SecretManagerClient](src/main/java/no/ssb/dapla/secrets/api/SecretManagerClient.java) is a provider based API for reading secrets.
+[SecretManagerClient](https://github.com/statisticsnorway/dapla-secrets-client-api/blob/master/src/main/java/no/ssb/dapla/secrets/api/SecretManagerClient.java) is a provider based API for reading secrets.
 
 ## Dependency
 
@@ -83,4 +83,4 @@ try (SecretManagerClient client = SecretManagerClient.create(providerConfigurati
 }
 ```
 
-Please refer to [SecretManagerTest](src/test/java/no/ssb/dapla/secrets/api/SecretManagerTest.java) for further details.
+Please refer to [SecretManagerTest](https://github.com/statisticsnorway/dapla-secrets-provider-google-rest-api/blob/master/src/test/java/no/ssb/dapla/secrets/google/secretmanager/restapi/GoogleSecretManagerRestApiTest.java) for further details.
