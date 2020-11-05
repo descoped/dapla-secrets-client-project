@@ -7,7 +7,13 @@
 ```xml
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-client</artifactId>
+    <artifactId>dapla-secrets-client-api</artifactId>
+    <version>0.1</version>
+</dependency>
+
+<dependency>
+    <groupId>no.ssb.dapla.secrets</groupId>
+    <artifactId>dapla-secrets-provider-google-rest-api</artifactId>
     <version>0.1</version>
 </dependency>
 ```
@@ -65,6 +71,8 @@ Map<String, String> providerConfiguration = Map.of(
         "secrets.serviceAccountKeyPath", "FULL_PATH_TO_SERVICE_ACCOUNT.json")
 );
 ```
+
+Please note: if you skip the `secrets.serviceAccountKeyPath` property, the SecretManagerClient will default to Workload Identity.
 
 2) create client and read secret
 
