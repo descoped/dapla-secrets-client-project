@@ -1,9 +1,7 @@
-/.idea
-*.iml
+**/.idea
+**/*.iml
 
 **/.DS_Store
-
-/target
 
 # Compiled class file
 *.class
@@ -30,11 +28,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-.idea/
-target/maven-archiver/
-
 dependency-reduced-pom.xml
 
 **/target
 
 **/application-override.properties
+
+/dapla-secret-manager-*
