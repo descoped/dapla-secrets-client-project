@@ -127,7 +127,7 @@ Map<String, String> providerConfiguration = Map.of(
 );
 ```
 
->> When running on a cluster you SHOULD NOT add the property `secrets.serviceAccountKeyPath`!
+> When running on a cluster you SHOULD NOT add the property `secrets.serviceAccountKeyPath`!
 
 2) create client and read secret
 
