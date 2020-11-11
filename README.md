@@ -2,7 +2,11 @@
 
 [SecretManagerClient](https://github.com/statisticsnorway/dapla-secrets-client-api/blob/master/src/main/java/no/ssb/dapla/secrets/api/SecretManagerClient.java) is a provider based API for reading secrets.
 
-## Dependency
+## Dependencies
+
+Add `dapla-secrets-client-api` as a compile time dependency and choose the provider(s) you want to use.
+Please note that `dapla-secrets-provider-dynamic-configuration` is only offered as a convenience library and should not be used in production,
+because secrets are loaded as Strings in heap.
 
 ```xml
 <dependency>
@@ -15,12 +19,21 @@
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-provider-safe-configuration</artifactId>
     <version>0.4.0</version>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+    <groupId>no.ssb.dapla.secrets</groupId>
+    <artifactId>dapla-secrets-provider-dynamic-configuration</artifactId>
+    <version>0.3.0</version>
+    <scope>runtime</scope>
 </dependency>
 
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-provider-google-secret-manager</artifactId>
     <version>0.2.0</version>
+    <scope>runtime</scope>
 </dependency>
 ```
 
@@ -50,6 +63,17 @@ interface SecretManagerClient extends AutoCloseable {
     byte[] readBytes(String secretName, String secretVersion);
 
     /**
+     * Convenience method that converts byte-array to char-array as UTF-8.
+     *
+     * Please notice: The input byte-array will be cleared after conversion.
+     *
+     * @param bytes input buffer
+     * @return characters array as utf8. Return an empty char-array if input is null or empty
+     *         the user is responsible for clearing a char-array copy.
+     */
+    static char[] safeCharArrayAsUTF8(final byte[] bytes);
+
+    /**
      * Create SecretManagerClient for a 'secrets.provider'
      *
      * @param configuration Each provider requires their own properties
@@ -61,10 +85,11 @@ interface SecretManagerClient extends AutoCloseable {
 
 ## Supported providers
 
-* Dynamic Secret Provider (`DynamicSecretConfigurationClient`)
-* Google Secret Manager Provider (`GoogleSecretManagerClient`)
+* Safe Configuration (`SafeConfigurationClient`)
+* Dynamic Configuration (`DynamicSecretConfigurationClient`) - test pruposes only
+* Google Secret Manager (`GoogleSecretManagerClient`)
 
-The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` authentication.
+The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` (default) authentication.
 
 ## Usage
 
@@ -74,7 +99,7 @@ The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` 
 Map<String, String> providerConfiguration = Map.of(
         "secrets.provider", "google-secret-manager",
         "secrets.projectId", "ssb-team-dapla",
-        "secrets.serviceAccountKeyPath", "FULL_PATH_TO_SERVICE_ACCOUNT.json")
+        "secrets.serviceAccountKeyPath", "FULL_PATH_TO_SERVICE_ACCOUNT.json") // local testing only
 );
 ```
 
