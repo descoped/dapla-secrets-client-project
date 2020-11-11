@@ -5,14 +5,12 @@
 ## Dependencies
 
 Add `dapla-secrets-client-api` as a compile time dependency and choose the provider(s) you want to use.
-Please note that `dapla-secrets-provider-dynamic-configuration` is only offered as a convenience library and should not be used in production,
-because secrets are loaded as Strings in heap.
 
 ```xml
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-client-api</artifactId>
-    <version>0.2.0</version>
+    <version>0.4.0</version>
 </dependency>
 
 <dependency>
@@ -24,15 +22,16 @@ because secrets are loaded as Strings in heap.
 
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-provider-dynamic-configuration</artifactId>
-    <version>0.3.0</version>
+    <artifactId>dapla-secrets-provider-google-secret-manager</artifactId>
+    <version>0.2.0</version>
     <scope>runtime</scope>
 </dependency>
 
+<!-- dynamic-configuration is unsafe and should only be used for migration or test purposes -->
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-provider-google-secret-manager</artifactId>
-    <version>0.2.0</version>
+    <artifactId>dapla-secrets-provider-dynamic-configuration</artifactId>
+    <version>0.3.0</version>
     <scope>runtime</scope>
 </dependency>
 ```
@@ -68,7 +67,7 @@ interface SecretManagerClient extends AutoCloseable {
      * Please notice: The input byte-array will be cleared after conversion.
      *
      * @param bytes input buffer
-     * @return characters array as utf8. Return an empty char-array if input is null or empty
+     * @return a char buffer as utf8. If the input is null or empty, an empty char-array is returned.
      *         the user is responsible for clearing a char-array copy.
      */
     static char[] safeCharArrayAsUTF8(final byte[] bytes);
@@ -85,13 +84,38 @@ interface SecretManagerClient extends AutoCloseable {
 
 ## Supported providers
 
-* Safe Configuration (`SafeConfigurationClient`)
-* Dynamic Configuration (`DynamicSecretConfigurationClient`) - test pruposes only
-* Google Secret Manager (`GoogleSecretManagerClient`)
+### Dynamic configuration
 
-The `GoogleSecretManagerClient` supports `service-account` and `compute-engine` (default) authentication.
+Please note: only use this provider for migration or test purposes
 
-## Usage
+Configuration for [Dynamic Configuration](https://github.com/statisticsnorway/dapla-secrets-provider-dynamic-configuration) provider:
+
+Property                      | Description
+------------------------------|----------------------------------------------
+secrets.providerId            | dynamic-configuration (required)
+secrets.propertyResourcePath  | full filepath to property resource (required)
+
+### Safe configuration
+
+Configuration for [Safe Configuration](https://github.com/statisticsnorway/dapla-secrets-provider-safe-configuration) provider:
+
+Property                      | Description
+------------------------------|----------------------------------------------
+secrets.providerId            | safe-configuration (required)
+secrets.propertyResourcePath  | full filepath to property resource (required)
+
+### Google Secret Manager
+
+Configuration for [Google Secret Manager](https://github.com/statisticsnorway/dapla-secrets-provider-google-secret-manager) provider:
+
+Property                      | Description
+------------------------------|----------------------------------------------
+secrets.providerId            | google-secret-manager (required)
+secrets.projectId             | team projectId (required)
+secrets.serviceAccountKeyPath | full filepath to service-account file enables `service-account`, otherwise it defaults to `compute-engine` (optional)
+
+
+## Example of use:
 
 1) google secret manager specific provider configuration
 
@@ -102,8 +126,6 @@ Map<String, String> providerConfiguration = Map.of(
         "secrets.serviceAccountKeyPath", "FULL_PATH_TO_SERVICE_ACCOUNT.json") // local testing only
 );
 ```
-
-Please note: if you skip the `secrets.serviceAccountKeyPath` property, the SecretManagerClient will default to Workload Identity.
 
 2) create client and read secret
 
