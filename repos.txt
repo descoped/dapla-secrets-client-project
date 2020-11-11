@@ -1,5 +1,4 @@
 dapla-secrets-client-api
 dapla-secrets-provider-dynamic-configuration
 dapla-secrets-provider-safe-configuration
-dapla-secrets-provider-google-rest-api
-dapla-secrets-provider-google-java-api
+dapla-secrets-provider-google-secret-manager

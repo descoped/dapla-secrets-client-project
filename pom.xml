@@ -49,8 +49,7 @@
         <module>dapla-secrets-client-api</module>
         <module>dapla-secrets-provider-dynamic-configuration</module>
         <module>dapla-secrets-provider-safe-configuration</module>
-        <module>dapla-secrets-provider-google-rest-api</module>
-        <module>dapla-secrets-provider-google-java-api</module>
+        <module>dapla-secrets-provider-google-secret-manager</module>
     </modules>
 
 </project>
