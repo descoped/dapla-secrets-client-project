@@ -112,7 +112,7 @@ Property                      | Description
 ------------------------------|----------------------------------------------
 secrets.providerId            | google-secret-manager (required)
 secrets.projectId             | team projectId (required)
-secrets.serviceAccountKeyPath | full filepath to service-account file enables `service-account`, otherwise it defaults to `compute-engine` (optional)
+secrets.serviceAccountKeyPath | (optional) full filepath to service-account file enables `service-account`, otherwise it defaults to `compute-engine`. When running on a cluster you SHOULD NOT use a json-key-file!
 
 
 ## Example of use:
