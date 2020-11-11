@@ -8,13 +8,19 @@
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-client-api</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-provider-google-rest-api</artifactId>
-    <version>0.1.0</version>
+    <artifactId>dapla-secrets-provider-safe-configuration</artifactId>
+    <version>0.4.0</version>
+</dependency>
+
+<dependency>
+    <groupId>no.ssb.dapla.secrets</groupId>
+    <artifactId>dapla-secrets-provider-google-secret-manager</artifactId>
+    <version>0.2.0</version>
 </dependency>
 ```
 
