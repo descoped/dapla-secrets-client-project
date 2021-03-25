@@ -10,20 +10,20 @@ Add `dapla-secrets-client-api` as a compile time dependency and choose the provi
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-client-api</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0</version>
 </dependency>
 
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-provider-safe-configuration</artifactId>
-    <version>0.4.0</version>
+    <version>0.6.0</version>
     <scope>runtime</scope>
 </dependency>
 
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-provider-google-secret-manager</artifactId>
-    <version>0.2.0</version>
+    <version>0.4.0</version>
     <scope>runtime</scope>
 </dependency>
 
@@ -31,7 +31,7 @@ Add `dapla-secrets-client-api` as a compile time dependency and choose the provi
 <dependency>
     <groupId>no.ssb.dapla.secrets</groupId>
     <artifactId>dapla-secrets-provider-dynamic-configuration</artifactId>
-    <version>0.3.0</version>
+    <version>0.6.0</version>
     <scope>runtime</scope>
 </dependency>
 ```
