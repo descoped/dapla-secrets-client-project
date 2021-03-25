@@ -90,29 +90,29 @@ Please note: only use this provider for migration or test purposes
 
 Configuration for [Dynamic Configuration](https://github.com/statisticsnorway/dapla-secrets-provider-dynamic-configuration) provider:
 
-Property                      | Description
-------------------------------|----------------------------------------------
-secrets.providerId            | dynamic-configuration (required)
-secrets.propertyResourcePath  | full filepath to property resource (required)
+Property                        | Description
+--------------------------------|----------------------------------------------
+secrets.provider                | dynamic-configuration (required)
+secrets.property-resource-path  | full filepath to property resource (required)
 
 ### Safe configuration
 
 Configuration for [Safe Configuration](https://github.com/statisticsnorway/dapla-secrets-provider-safe-configuration) provider:
 
-Property                      | Description
-------------------------------|----------------------------------------------
-secrets.providerId            | safe-configuration (required)
-secrets.propertyResourcePath  | full filepath to property resource (required)
+Property                        | Description
+--------------------------------|----------------------------------------------
+secrets.provider                | safe-configuration (required)
+secrets.property-resource-path  | full filepath to property resource (required)
 
 ### Google Secret Manager
 
 Configuration for [Google Secret Manager](https://github.com/statisticsnorway/dapla-secrets-provider-google-secret-manager) provider:
 
-Property                      | Description
-------------------------------|----------------------------------------------
-secrets.providerId            | google-secret-manager (required)
-secrets.projectId             | team projectId (required)
-secrets.serviceAccountKeyPath | (optional) full filepath to service-account file enables `service-account`, otherwise it defaults to `compute-engine`. When running on a cluster you SHOULD NOT use a json-key-file!
+Property                         | Description
+---------------------------------|----------------------------------------------
+secrets.provider                 | google-secret-manager (required)
+secrets.project-id               | team projectId (required)
+secrets.service-account-key-path | (optional) full filepath to service-account file enables `service-account`, otherwise it defaults to `compute-engine`. When running on a cluster you SHOULD NOT use a json-key-file!
 
 
 ## Example of use:
@@ -122,8 +122,8 @@ secrets.serviceAccountKeyPath | (optional) full filepath to service-account file
 ```java
 Map<String, String> providerConfiguration = Map.of(
         "secrets.provider", "google-secret-manager",
-        "secrets.projectId", "ssb-team-dapla",
-        "secrets.serviceAccountKeyPath", "FULL_PATH_TO_SERVICE_ACCOUNT.json") // local testing only
+        "secrets.project-id", "ssb-team-dapla",
+        "secrets.service-account-key-path", "FULL_PATH_TO_SERVICE_ACCOUNT.json") // local testing only
 );
 ```
 
