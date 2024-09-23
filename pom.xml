@@ -11,7 +11,7 @@
 
     <name>Dapla Secrets Client Project</name>
     <description>Dapla Secrets Client Project</description>
-    <url>https://github.com/statisticsnorway/</url>
+    <url>https://github.com/descoped/</url>
     <inceptionYear>2020</inceptionYear>
 
     <properties>
@@ -31,17 +31,15 @@
         <developer>
             <name>Ove Ranheim</name>
             <email>ove.ranheim@gmail.com</email>
-            <url>https://www.linkedin.com/in/oranheim/</url>
-            <organization>Capra Consulting AS</organization>
-            <organizationUrl>https://www.capraconsulting.no/</organizationUrl>
+            <url>https://www.linkedin.com/in/overanheim/</url>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/statisticsnorway/dapla-secrets-client-project.git</connection>
-        <developerConnection>scm:git:git@github.com:statisticsnorway/dapla-secrets-client-project.git
+        <connection>scm:git:git://github.com/descoped/dapla-secrets-client-project.git</connection>
+        <developerConnection>scm:git:git@github.com:descoped/dapla-secrets-client-project.git
         </developerConnection>
-        <url>https://github.com/statisticsnorway/dapla-secrets-client-project/tree/master</url>
+        <url>https://github.com/descoped/dapla-secrets-client-project/tree/master</url>
         <tag>HEAD</tag>
     </scm>
 

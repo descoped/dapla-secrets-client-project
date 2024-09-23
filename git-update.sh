@@ -8,7 +8,7 @@ function update {
 
 function clone {
     printf "Cloning $1... "
-    output=$(git clone git@github.com:statisticsnorway/${1}.git 2>&1)
+    output=$(git clone git@github.com:descoped/${1}.git 2>&1)
     handle_response
 }
 
