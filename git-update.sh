@@ -41,7 +41,7 @@ function handle_response {
     fi
 }
 
-update "." "dapla-secrets-client-project"
+update "." "secrets-client-project"
 while read -r repo
 do
     if [ -d ${repo} ];

@@ -1,4 +1,4 @@
-dapla-secrets-client-api
-dapla-secrets-provider-dynamic-configuration
-dapla-secrets-provider-safe-configuration
-dapla-secrets-provider-google-secret-manager
+secrets-client-api
+secrets-provider-dynamic-configuration
+secrets-provider-safe-configuration
+secrets-provider-google-secret-manager

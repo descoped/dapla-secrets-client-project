@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-client-project</artifactId>
+    <groupId>no.ssb.secrets</groupId>
+    <artifactId>secrets-client-project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Dapla Secrets Client Project</name>
-    <description>Dapla Secrets Client Project</description>
+    <name>Secrets Client Project</name>
+    <description>Secrets Client Project</description>
     <url>https://github.com/descoped/</url>
     <inceptionYear>2020</inceptionYear>
 
@@ -36,18 +36,18 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/descoped/dapla-secrets-client-project.git</connection>
-        <developerConnection>scm:git:git@github.com:descoped/dapla-secrets-client-project.git
+        <connection>scm:git:git://github.com/descoped/secrets-client-project.git</connection>
+        <developerConnection>scm:git:git@github.com:descoped/secrets-client-project.git
         </developerConnection>
-        <url>https://github.com/descoped/dapla-secrets-client-project/tree/master</url>
+        <url>https://github.com/descoped/secrets-client-project/tree/master</url>
         <tag>HEAD</tag>
     </scm>
 
     <modules>
-        <module>dapla-secrets-client-api</module>
-        <module>dapla-secrets-provider-dynamic-configuration</module>
-        <module>dapla-secrets-provider-safe-configuration</module>
-        <module>dapla-secrets-provider-google-secret-manager</module>
+        <module>secrets-client-api</module>
+        <module>secrets-provider-dynamic-configuration</module>
+        <module>secrets-provider-safe-configuration</module>
+        <module>secrets-provider-google-secret-manager</module>
     </modules>
 
 </project>
