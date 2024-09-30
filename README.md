@@ -1,37 +1,38 @@
-# Dapla Secret Manager Client
+# Secret Manager Client
 
-[SecretManagerClient](https://github.com/statisticsnorway/dapla-secrets-client-api/blob/master/src/main/java/no/ssb/dapla/secrets/api/SecretManagerClient.java) is a provider based API for reading secrets.
+[SecretManagerClient](https://github.com/descoped/secrets-client-api/blob/master/src/main/java/io/descoped/secrets/api/SecretManagerClient.java)
+is a provider based API for reading secrets.
 
 ## Dependencies
 
-Add `dapla-secrets-client-api` as a compile time dependency and choose the provider(s) you want to use.
+Add `secrets-client-api` as a compile time dependency and choose the provider(s) you want to use.
 
 ```xml
 <dependency>
-    <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-client-api</artifactId>
-    <version>0.5.0</version>
+    <groupId>io.descoped.secrets</groupId>
+    <artifactId>secrets-client-api</artifactId>
+    <version>2.0.0</version>
 </dependency>
 
 <dependency>
-    <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-provider-safe-configuration</artifactId>
-    <version>0.6.0</version>
+<groupId>io.descoped.secrets</groupId>
+<artifactId>secrets-provider-safe-configuration</artifactId>
+<version>2.0.0</version>
     <scope>runtime</scope>
 </dependency>
 
 <dependency>
-    <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-provider-google-secret-manager</artifactId>
-    <version>0.4.0</version>
+<groupId>io.descoped.secrets</groupId>
+<artifactId>secrets-provider-google-secret-manager</artifactId>
+<version>2.0.0</version>
     <scope>runtime</scope>
 </dependency>
 
 <!-- dynamic-configuration is unsafe and should only be used for migration or test purposes -->
 <dependency>
-    <groupId>no.ssb.dapla.secrets</groupId>
-    <artifactId>dapla-secrets-provider-dynamic-configuration</artifactId>
-    <version>0.6.0</version>
+<groupId>io.descoped.secrets</groupId>
+<artifactId>secrets-provider-dynamic-configuration</artifactId>
+<version>2.0.0</version>
     <scope>runtime</scope>
 </dependency>
 ```
@@ -88,7 +89,7 @@ interface SecretManagerClient extends AutoCloseable {
 
 Please note: only use this provider for migration or test purposes
 
-Configuration for [Dynamic Configuration](https://github.com/statisticsnorway/dapla-secrets-provider-dynamic-configuration) provider:
+Configuration for [Dynamic Configuration](https://github.com/descoped/secrets-provider-dynamic-configuration) provider:
 
 Property                        | Description
 --------------------------------|----------------------------------------------
@@ -97,7 +98,7 @@ secrets.property-resource-path  | full filepath to property resource (required)
 
 ### Safe configuration
 
-Configuration for [Safe Configuration](https://github.com/statisticsnorway/dapla-secrets-provider-safe-configuration) provider:
+Configuration for [Safe Configuration](https://github.com/descoped/secrets-provider-safe-configuration) provider:
 
 Property                        | Description
 --------------------------------|----------------------------------------------
@@ -106,7 +107,7 @@ secrets.property-resource-path  | full filepath to property resource (required)
 
 ### Google Secret Manager
 
-Configuration for [Google Secret Manager](https://github.com/statisticsnorway/dapla-secrets-provider-google-secret-manager) provider:
+Configuration for [Google Secret Manager](https://github.com/descoped/secrets-provider-google-secret-manager) provider:
 
 Property                         | Description
 ---------------------------------|----------------------------------------------
@@ -122,7 +123,7 @@ secrets.service-account-key-path | (optional) full filepath to service-account f
 ```java
 Map<String, String> providerConfiguration = Map.of(
         "secrets.provider", "google-secret-manager",
-        "secrets.project-id", "ssb-team-dapla",
+        "secrets.project-id", "descoped-team",
         "secrets.service-account-key-path", "FULL_PATH_TO_SERVICE_ACCOUNT.json") // local testing only
 );
 ```
@@ -138,4 +139,6 @@ try (SecretManagerClient client = SecretManagerClient.create(providerConfigurati
 }
 ```
 
-Please refer to [SecretManagerTest](https://github.com/statisticsnorway/dapla-secrets-provider-google-rest-api/blob/master/src/test/java/no/ssb/dapla/secrets/google/secretmanager/restapi/GoogleSecretManagerRestApiTest.java) for further details.
+Please refer
+to [SecretManagerTest](https://github.com/descoped/secrets-provider-google-rest-api/blob/master/src/test/java/io/descoped/secrets/google/secretmanager/restapi/GoogleSecretManagerRestApiTest.java)
+for further details.
